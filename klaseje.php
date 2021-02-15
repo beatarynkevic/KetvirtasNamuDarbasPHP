@@ -101,4 +101,25 @@ foreach($masyvas2 as $index => $value) {
 
 
 // //budai pakeisti kintamaji
-// ?>
+$fruits=['banana', 'apple', 'orange', 'peach'];
+foreach($fruits as $value) {
+    echo $value . '<br>';
+}
+echo '<pre>';
+print_r($fruits);
+echo '</pre>';
+
+$colors = ['red', 'green', 'blue', 'yellow'];
+foreach ($colors as $index => $value) {
+   echo 'Indeksas: ' . $index . ' Reikšmė: ' . $value . '<br>';
+}
+
+
+$transport = array('foot', 'bike', 'car', 'plane');
+$mode = current($transport); // $mode = 'foot';
+$mode = next($transport);    // $mode = 'bike';
+$mode = current($transport); // $mode = 'bike';
+$mode = prev($transport);    // $mode = 'foot';
+$mode = end($transport);     // $mode = 'plane';
+$mode = current($transport); // $mode = 'plane';
+?>
