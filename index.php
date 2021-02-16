@@ -185,14 +185,40 @@ Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis). -->
 
 <?php
 
+$array6B = [];
+$array6A= [];
 
+while(count($array6A) < 100)
+{
+    $randomNum = rand(100, 999);
+    if(!in_array($randomNum, $array6A)) {
+        array_push($array6A, $randomNum);
+    }
+}
+while(count($array6B) < 100)
+{
+    $randomNum = rand(100, 999);
+    if(!in_array($randomNum, $array6B)) {
+        array_push($array6B, $randomNum);
+    }
+}
+
+echo '<pre>';
+print_r($array6A);
+print_r($array6B);
 ?>
 <h2>-----7-----</h2>
 <!-- Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve. -->
 
 <?php
+$arrayUnique = [];
+$arrayEqual = [];
+for ($i = 0; $i < count($array6A); $i++) {
+    in_array($array6A[$i], $array6B) ? array_push($arrayEqual, $array6A[$i]) : array_push($arrayUnique, $array6A[$i]);
+}
 
-
+echo '<pre>';
+print_r($arrayUnique);
 ?>
 <h2>-----8-----</h2>
 <!-- Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose. -->
