@@ -102,11 +102,37 @@ echo '</pre>';
 <!-- Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės. -->
 <?php
 
-
+$countA = 0;
+$countB = 0;
+$countC = 0;
+$countD = 0;
+$array = range(0, 200);
+foreach($array as $i => $v) {
+    $skaicius = rand(65, 68);
+    $raide = chr($skaicius);
+    $array[$i] = $raide;
+    if($raide === 'A') {
+        $countA++;
+    } else if ($raide === 'B') {
+        $countB++;
+    } else if ($raide === 'C') {
+        $countC++;
+    } else {
+        $countD++;
+    }
+}
+echo '<pre>';
+print_r($array);
+echo "A raidziu yra: $countA, B raidziu yra: $countB, C raidziu yra: $countC, D raidziu yra: $countD";
 ?>
 <h2>-----4-----</h2>
 <!-- Išrūšiuokite 3 uždavinio masyvą pagal abecėlę. -->
 <?php
+$fruits = ['kivi', 'apple', 'peach', 'banana', 'orange'];
+
+sort($array);
+echo '<pre>';
+print_r($array);
 
 
 ?>
@@ -115,9 +141,44 @@ echo '</pre>';
 Paskaičiuokite kiek unikalių reikšmių kombinacijų gavote. -->
 
 <?php
+$mergedArray = [];
+for($i = 0; $i <= 200; $i++) {
+    $skaicius = rand(65, 68);
+    $raide = chr($skaicius);
+    $array1[$i] = $raide;
+}
+for($i = 0; $i <= 200; $i++) {
+    $skaicius = rand(65, 68);
+    $raide = chr($skaicius);
+    $array2[$i] = $raide;
+}
+for($i = 0; $i <= 200; $i++) {
+    $skaicius = rand(65, 68);
+    $raide = chr($skaicius);
+    $array3[$i] = $raide;
+}
 
+for($i = 0; $i <= 200; $i++) {
+    $mergedArray[$i] = $array1[$i].$array2[$i].$array[$i];
+}
+echo '<pre>';
+print_r($mergedArray);
+
+//kiek unikaliu ?
+
+$unikalus = [];
+foreach($mergedArray as $value) {
+    if(!in_array($value,$unikalus)) { //jeigu nera vertes naujame masyve
+        array_push($unikalus, $value);
+    }
+}
+echo '<pre>';
+print_r($unikalus);
+echo '<bre>';
+echo count($unikalus);
 
 ?>
+
 <h2>-----6-----</h2>
 <!-- Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100.
 Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis). -->
