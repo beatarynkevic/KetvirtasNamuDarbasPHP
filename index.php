@@ -2,20 +2,14 @@
 <!-- Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra
 atsitiktiniai skaičiai nuo 5 iki 25. -->
 <?php
-$fruits=['banana', 'apple', 'orange', 'peach'];
-foreach($fruits as $value) {
-    echo $value . '<br>';
+$masyvas = range(0, 29);
+foreach($masyvas as $index => $value) {
+    $masyvas[$index] = rand(5, 25);
 }
+
 echo '<pre>';
-print_r($fruits);
+print_r($masyvas);
 echo '</pre>';
-
-$colors = ['red', 'green', 'blue', 'yellow'];
-foreach ($colors as $index => $value) {
-   echo 'Indeksas: ' . $index . ' Reikšmė: ' . $value . '<br>';
-}
-
-
 ?>
 <h2>-----2-----</h2>
 <!-- Naudodamiesi 1 uždavinio masyvu:
