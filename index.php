@@ -224,23 +224,36 @@ print_r($arrayUnique);
 <!-- Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose. -->
 
 <?php
-
-
+echo '<pre>';
+print_r($arrayEqual);
 ?>
 <h2>-----9-----</h2>
 <!-- Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo. -->
 
 <?php
-
-
+$array9 = [];
+for($i = 0; $i < count($array6A); $i++) {
+    $array9[$array6A[$i]] = $array6B[$i];
+}
+echo '<pre>';
+print_r($array9);
 ?>
 <h2>-----10-----</h2>
 <!-- Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25.
 Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t. -->
 
 <?php
+$array10 =[];
+for($i = 0; $i < 10; $i++) {
+    if(($i === 0) || ($i === 1)) {
+        $array10[$i] = rand(5, 25);
+    } else {
 
-
+        array_push($array10, ($array10[$i-1] + $array10[$i-2]) );
+    }  
+}
+echo '<pre>';
+print_r($array10);
 ?>
 <h2>-----11-----</h2>
 <!-- Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. Reikšmes kurios tame masyve yra ne unikalios pergeneruokite
