@@ -3,31 +3,101 @@
 atsitiktiniai skaičiai nuo 5 iki 25. -->
 <?php
 $masyvas = range(0, 29);
+$count = 0;
+$visuReiksmiuSuma = 0;
 foreach($masyvas as $index => $value) {
     $masyvas[$index] = rand(5, 25);
+    if($masyvas[$index] > 10) {
+        $count++;
+        $visuReiksmiuSuma += $masyvas[$index];
+    }
 }
 
 echo '<pre>';
 print_r($masyvas);
 echo '</pre>';
+echo '<h2>-----2-----</h2>';
+echo 'a) Reiksmiu didesniu uz 10 yra: ' . $count; 
+
+// Naudodamiesi 1 uždavinio masyvu:
+// a) Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+// b) Raskite didžiausią masyvo reikšmę;
+// c) Suskaičiuokite visų reikšmių sumą;
+// d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+// e) Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+// f) Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+// g) Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+// h) Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+// i) Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
+
+echo '<br>';
+echo 'b) Didziausia masyvo reiksme yra: '. max($masyvas) . '<br>';
+echo 'c) Visu reiksmiu suma yra: ' . $visuReiksmiuSuma . '<br>';
+
+$newArray =[];
+for($i = 0; $i < count($masyvas); $i++) {
+    array_push($newArray, ($masyvas[$i] - $i));
+}
+
+
+$papildomaiElementu = 10;
+
+for($i = 0; $i < $papildomaiElementu; $i++) {
+    $reiksmes = rand(5, 25);
+    array_push($newArray, $reiksmes);
+}
+echo 'd), e) :';
+echo '<pre>';
+print_r($newArray);
+
+echo '<br> Poriniu indeksu reiksmiu masyvas: <br>';
+$oddArray = [];
+$evenArray = [];
+foreach($newArray as $i => $v) {
+    if($i % 2 === 0) {
+        array_push($evenArray, $newArray[$i]);
+    } else {
+        array_push($oddArray, $newArray[$i]);
+    }
+}
+
+
+echo '<pre>';
+print_r($evenArray);
+echo '<br> Neporiniu indeksu reiksmiu masyvas: <br>';
+echo '<pre>';
+print_r($oddArray);
+
+$c = 0;
+foreach($evenArray as $i => $v) {
+    if ($v > 15) {
+        $evenArray[$i] = 0;
+    } 
+}
+echo '<pre>';
+print_r($evenArray);
+
+echo "h) Pirmas maziausias indeksas, kurio elemento reiksme daugiau nei 10: ";
+foreach($evenArray as $i => $v) {
+    if($v > 10) {
+        print_r($i);
+        break;
+    }
+}
+echo '<pre>';
+
+echo "i) ";
+foreach ($masyvas as $index => $value) {
+    if ($index % 2 === 0) {
+       unset($masyvas[$index]);             //If you want to delete an element from an array 
+    }
+}
+echo 'Array without even elements: <pre>';
+print_r($masyvas);
+echo '</pre>';
+
 ?>
-<h2>-----2-----</h2>
-<!-- Naudodamiesi 1 uždavinio masyvu:
-a) Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
-b) Raskite didžiausią masyvo reikšmę;
-c) Suskaičiuokite visų reikšmių sumą;
-d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
-e) Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
-f) Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
-g) Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
-h) Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
-i) Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą; -->
-<?php
 
-
-
-
-?>
 <h2>-----3-----</h2>
 <!-- Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės. -->
 <?php
