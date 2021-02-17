@@ -273,7 +273,6 @@ iš naujo taip, kad visos reikšmės masyve būtų unikalios. Išrūšiuokite ma
 o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. Paskaičiuokite pirmos ir antros masyvo dalies sumas
 (neskaičiuojant vidurinės). Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite.
 (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30) -->
-
 <?php
 $m11= [];
 while(count($m11) < 102)
@@ -283,11 +282,35 @@ while(count($m11) < 102)
         array_push($m11, $rand);
     }
 }
-$m11[50] = max($m11);
+for($i = 51; $i >= 0; $i--) {
+    for($j = 50; $j >= 0; $j--) {
+        if($m11[$i] > $m11[$j]) 
+        {
+            $laikinas =$m11[$i];
+            $m11[$i] = $m11[$j];
+            $m11[$j] = $laikinas;
+        }
+    }
+}
+for($i = 50; $i < count($m11); $i++) {
+    for($j = $i + 1; $j < count($m11); $j++) {
+        if($m11[$i] < $m11[$j]) 
+        {
+            $laikinas =$m11[$i];
+            $m11[$i] = $m11[$j];
+            $m11[$j] = $laikinas;
+        }
+    }
+}
 echo '<pre>';
 print_r($m11);
 
 
+
+
+
+
+// print_r(array_search(max($m11), $m11));
 // $b = [1, 5, 8, 9, 4, 2, 3];
 // arsort($b);
 // echo '<pre>';

@@ -9,7 +9,7 @@ foreach(range(1, 10) as $index1 => $val1) {
     }
 }
 
-$counter = 0;
+$counter = 0;                               //2.a
 foreach($mas as $mazas_masyvas) {
     foreach($mazas_masyvas as $reiksmes) {
         if(10 < $reiksmes) {
