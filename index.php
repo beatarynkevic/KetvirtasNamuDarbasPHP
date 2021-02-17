@@ -2,19 +2,31 @@
 <!-- Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra
 atsitiktiniai skaičiai nuo 5 iki 25. -->
 <?php
+//destytojo sprendimas
+// $mas = [];
+// foreach(range(1, 30) as $val) {
+//     $mas[] = rand(5, 25);
+// }
+// echo '<pre>';
+// print_r($mas);
+
+
+
 $masyvas = range(0, 29);
-$count = 0;
-$visuReiksmiuSuma = 0;
+$count = 0;             //2.a
+$visuReiksmiuSuma = 0;      //2.c
 foreach($masyvas as $index => $value) {
     $masyvas[$index] = rand(5, 25);
-    if($masyvas[$index] > 10) {
+    if($masyvas[$index] > 10) {                 //2.a
         $count++;
-        $visuReiksmiuSuma += $masyvas[$index];
+        $visuReiksmiuSuma += $masyvas[$index];  //2.c
     }
 }
 
 echo '<pre>';
 print_r($masyvas);
+//  _dc($masyvas);
+//  _d('fffff');
 echo '</pre>';
 echo '<h2>-----2-----</h2>';
 echo 'a) Reiksmiu didesniu uz 10 yra: ' . $count; 
@@ -31,10 +43,10 @@ echo 'a) Reiksmiu didesniu uz 10 yra: ' . $count;
 // i) Naudodami funkciją unset() iš masyvo ištrinkite visus elementus turinčius porinį indeksą;
 
 echo '<br>';
-echo 'b) Didziausia masyvo reiksme yra: '. max($masyvas) . '<br>';
+echo 'b) Didziausia masyvo reiksme yra: '. max($masyvas) . '<br>';  //2.b
 echo 'c) Visu reiksmiu suma yra: ' . $visuReiksmiuSuma . '<br>';
 
-$newArray =[];
+$newArray =[];                              //2.d
 for($i = 0; $i < count($masyvas); $i++) {
     array_push($newArray, ($masyvas[$i] - $i));
 }
@@ -42,7 +54,7 @@ for($i = 0; $i < count($masyvas); $i++) {
 
 $papildomaiElementu = 10;
 
-for($i = 0; $i < $papildomaiElementu; $i++) {
+for($i = 0; $i < $papildomaiElementu; $i++) {       //2.e
     $reiksmes = rand(5, 25);
     array_push($newArray, $reiksmes);
 }
@@ -263,5 +275,21 @@ o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. Paskai�
 (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30) -->
 
 <?php
+$m11= [];
+while(count($m11) < 102)
+{
+    $rand = rand(0, 300);
+    if(!in_array($rand, $m11)) {
+        array_push($m11, $rand);
+    }
+}
+$m11[50] = max($m11);
+echo '<pre>';
+print_r($m11);
 
+
+// $b = [1, 5, 8, 9, 4, 2, 3];
+// arsort($b);
+// echo '<pre>';
+// print_r($b);
 ?>
