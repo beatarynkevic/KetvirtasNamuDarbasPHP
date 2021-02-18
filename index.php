@@ -87,6 +87,7 @@ foreach($evenArray as $i => $v) {
     } 
 }
 echo '<pre>';
+echo "g) 0 jeigu jie didesni už 15: <br>";
 print_r($evenArray);
 
 echo "h) Pirmas maziausias indeksas, kurio elemento reiksme daugiau nei 10: ";
@@ -140,13 +141,9 @@ echo "A raidziu yra: $countA, B raidziu yra: $countB, C raidziu yra: $countC, D 
 <h2>-----4-----</h2>
 <!-- Išrūšiuokite 3 uždavinio masyvą pagal abecėlę. -->
 <?php
-$fruits = ['kivi', 'apple', 'peach', 'banana', 'orange'];
-
 sort($array);
 echo '<pre>';
 print_r($array);
-
-
 ?>
 <h2>-----5-----</h2>
 <!-- Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes.
@@ -184,10 +181,42 @@ foreach($mergedArray as $value) {
         array_push($unikalus, $value);
     }
 }
-echo '<pre>';
-print_r($unikalus);
-echo '<bre>';
+echo '<br>';
+echo 'Kiek unikaliu??' . '<br>';
 echo count($unikalus);
+
+// echo '<br>' . 'kitoks variantas' . '<br>';
+// $ABCZ = 'ABCZ';
+
+// for ($i = 0; $i < 200; $i++) {
+//     $randomABCD1[] = $ABCZ[rand(0,3)];
+//     $randomABCD2[] = $ABCZ[rand(0,3)];
+//     $randomABCD3[] = $ABCZ[rand(0,3)];
+// }
+
+// foreach($randomABCD1 as $key => $val) {
+//     $bendrasMasyvas[] = $val.$randomABCD2[$key].$randomABCD3[$key];
+// }
+//lauztiniai skliaustai, curly braces
+// _dc($bendrasMasyvas);
+// $unikalios = [];
+// $po1kart = [];
+
+// foreach($bendrasMasyvas as $val) {
+//     if(!in_array($val, $unikalios)) {
+//         $unikalios[] = $val;
+//     }
+// }
+
+// foreach($bendrasMasyvas as $key => $val) {
+//     unset($bendrasMasyvas[$key]);
+//     if(!in_array($val, $bendrasMasyvas)) {
+//         $po1kart[] = $val;
+//     }
+//     $bendrasMasyvas[$key] = $val;
+// }
+// //print kiek unikaliu reiksmiu
+// _dc(count($unikalios));
 
 ?>
 
@@ -200,14 +229,14 @@ Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis). -->
 $array6B = [];
 $array6A= [];
 
-while(count($array6A) < 100)
+while(count($array6A) < 101)
 {
     $randomNum = rand(100, 999);
     if(!in_array($randomNum, $array6A)) {
         array_push($array6A, $randomNum);
     }
 }
-while(count($array6B) < 100)
+while(count($array6B) < 101)
 {
     $randomNum = rand(100, 999);
     if(!in_array($randomNum, $array6B)) {
@@ -260,7 +289,6 @@ for($i = 0; $i < 10; $i++) {
     if(($i === 0) || ($i === 1)) {
         $array10[$i] = rand(5, 25);
     } else {
-
         array_push($array10, ($array10[$i-1] + $array10[$i-2]) );
     }  
 }
