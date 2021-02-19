@@ -17,11 +17,12 @@ foreach($mas as $mazas_masyvas) {
         }
     } 
 }
-_d($counter);
-_d($mas);
-
-usort($mas, function($a, $b) {
-    return $a[1] <=> $b[0];
+echo "Elementu didesniu uz 10 yra: $counter <br>";
+// _d($counter);
+// _d($mas);
+// _dc($mas);
+usort($mas, function($a, $b) { 
+    return $a[0] <=> $b[0]; //pagal mazojo masyvo indeksa
 });
 _dc($mas);
 
