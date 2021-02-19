@@ -89,11 +89,18 @@ echo "<br> 2 indeksu suma: $vienoduIndeksuSuma2";
 echo "<br> 3 indeksu suma: $vienoduIndeksuSuma3";
 echo "<br> 4 indeksu suma: $vienoduIndeksuSuma4";
 
-for($i = 0; $i < count($mas); $i++ ){       //2d
-    for($j = 0; $j < 7; $j++) {
-        if(count($mas[$i]) < 7) {
-            $mas[$i][] = rand(5, 25);
-        }
+// for($i = 0; $i < count($mas); $i++ ){       //2d
+//     for($j = 0; $j < 7; $j++) {
+//         if(count($mas[$i]) < 7) {
+//             $mas[$i][] = rand(5, 25);
+//         }
+//     }
+// }
+echo '<br>******Kitoks variantas*********';
+foreach($mas as &$vidinisMasyvas) {     //?
+    while(count($vidinisMasyvas) < 7)
+    {
+        $vidinisMasyvas[]=rand(5, 25);
     }
 }
 
@@ -160,11 +167,17 @@ foreach(range(1, 10) as $index => $value) {
 echo '<pre>';
 print_r($masyvas);
 
+// foreach($masyvas as $pozicija=> &$vidinisMasyvas) { kitoks budas
+//     sort($vidinisMasyvas);
+// }
+// print_r($masyvas);
 ?>
 
 <h2>-----4-----</h2>
 <!-- Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. -->
 <?php
+sort($masyvas);
+print_r($masyvas);
 
 ?>
 
@@ -172,8 +185,17 @@ print_r($masyvas);
 <!-- Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas
 [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100.  -->
 <?php
+$userArray = [];
 
+for($i = 0; $i < 8; $i++) {
+    $userID = rand(1, 10);
+    while(in_array($userID, array_column($userArray, 'user_id'))) { //kol userId yra
+        $userID = rand(1, 10);
+    }
+    $userArray[] = ['user_id' => $userID, 'place_in_row' => rand(0, 100)];
+}
 
+print_r($userArray);
 ?>
 
 <h2>-----6-----</h2>
