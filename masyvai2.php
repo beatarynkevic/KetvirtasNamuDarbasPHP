@@ -144,15 +144,67 @@ for($i=0; $i < count($mas); $i++) {
 $masyvasReiksmiuSuma =[$nulinisMas, $pirmasMas, $antrasMas, $treciasMas, $ketvirtasMas, $penktasMas, $sestasMas, $septMas, $astMas, $devMas];
 print_r($masyvasReiksmiuSuma);
 ?>
+
 <h2>-----3-----</h2>
+<!-- Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų.
+Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm). -->
+<?php
+$masyvas=[];
+foreach(range(1, 10) as $index => $value) {
+    foreach(range(rand(2, 20),rand(2, 20)) as $index2 => $value2) {
+        $masyvas[$index][$index2] = chr(rand(65, 90));
+        sort($masyvas[$index]);
+    }
+}
+
+echo '<pre>';
+print_r($masyvas);
+
+?>
+
+<h2>-----4-----</h2>
+<!-- Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. -->
 <?php
 
 ?>
-<h2>-----4-----</h2>
+
 <h2>-----5-----</h2>
+<!-- Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas
+[user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100.  -->
+<?php
+
+
+?>
+
 <h2>-----6-----</h2>
+<!-- Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka. -->
+<?php
+
+?>
+
 <h2>-----7-----</h2>
+<!-- Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname.
+Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15. -->
+<?php
+
+?>
 <h2>-----8-----</h2>
+<!-- Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal taisyklę: generuokite skaičių nuo 0 iki 5.
+Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite.
+Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai. -->
+<?php
+
+?>
 <h2>-----9-----</h2>
+<!-- Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų
+mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos. -->
+<?php
+
+?>
 <h2>-----10-----</h2>
+<!-- Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų.
+Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color.
+Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX.
+Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color. -->
+
 <h2>-----11-----</h2>
