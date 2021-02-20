@@ -185,30 +185,70 @@ print_r($masyvas);
 <!-- Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas
 [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100.  -->
 <?php
-$userArray = [];
+$usersArray = [];
 
 for($i = 0; $i < 8; $i++) {
     $userID = rand(1, 10);
-    while(in_array($userID, array_column($userArray, 'user_id'))) { //kol userId yra
+    while(in_array($userID, array_column($usersArray, 'user_id'))) { //kol userId yra
         $userID = rand(1, 10);
     }
-    $userArray[] = ['user_id' => $userID, 'place_in_row' => rand(0, 100)];
+    $usersArray[] = ['user_id' => $userID, 'place_in_row' => rand(0, 100)];
 }
 
-print_r($userArray);
+print_r($usersArray);
 ?>
 
 <h2>-----6-----</h2>
 <!-- Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka. -->
 <?php
-
+array_multisort(array_column($usersArray, 'user_id'), SORT_ASC, $usersArray);
+echo '<pre>';
+print_r($usersArray);
+echo '</pre>';
+array_multisort(array_column($usersArray, 'place_in_row'), SORT_DESC, $usersArray);
+echo '<pre>';
+print_r($usersArray);
+echo '</pre>';
 ?>
 
 <h2>-----7-----</h2>
 <!-- Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname.
 Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15. -->
 <?php
+// $letters = range('a', 'z');         !!!kitoks sprendimas!!!
+// foreach($usersArray as &$user) {
+//     $name = '';
+//     $nameLength = rand(5, 15);
+//     $surname = '';
+//     $surnameLength = rand(5, 15);
+//     for ($i = 0; $i < $nameLength; $i++) {
+//         $name .= ($i === 0) ? strtoupper(array_rand(array_flip($letters))) : array_rand(array_flip($letters));
+//     }
+//     $user['name'] = $name;
+//     for ($i = 0; $i < $surnameLength; $i++) {
+//         $surname .= ($i === 0) ? strtoupper(array_rand(array_flip($letters))) : array_rand(array_flip($letters));
+//     }
+//     $user['surname'] = $surname;
+// }
+// unset($user);
 
+// echo '<pre>';
+// print_r($usersArray);
+
+foreach($usersArray as $index => $value) {
+    $letters = range('a', 'z');
+    shuffle($letters);
+    $length = rand(5, 15);
+    $lengthSurname = rand(5, 15);
+    $word = substr(implode($letters), 0, $length);
+    shuffle($letters);
+    $wordSurname = substr(implode($letters), 0, $lengthSurname);
+    $usersArray[$index]['name'] = ucfirst($word);
+    $usersArray[$index]['surname'] = ucfirst($wordSurname);
+}
+print_r($usersArray);
+
+echo '<br><br>';
 ?>
 <h2>-----8-----</h2>
 <!-- Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal taisyklę: generuokite skaičių nuo 0 iki 5.
