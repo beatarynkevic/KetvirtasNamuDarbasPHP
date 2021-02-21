@@ -191,7 +191,7 @@ $usersArray = [];
 for($i = 0; $i < 30; $i++) {
     $userID = rand(1, 1000000);
     while(in_array($userID, array_column($usersArray, 'user_id'))) { //kol userId yra
-        $userID = rand(1, 10);
+        $userID = rand(1, 1000000);
     }
     $usersArray[] = ['user_id' => $userID, 'place_in_row' => rand(0, 100)];
 }
