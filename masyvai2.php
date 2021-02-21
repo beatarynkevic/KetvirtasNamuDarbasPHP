@@ -275,7 +275,27 @@ foreach(range(1, 10) as $key => $value) {
 <!-- Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų
 mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos. -->
 <?php
+$masSum= 0;
+foreach($masyvas8 as $index => $value) {
+   if(is_array($masyvas8[$index])) {
+       $masyvoSuma = 0;
+       foreach($masyvas8[$index] as $key => $value2) {
+           $masSum += $value2;
+           $masyvoSuma += $value2;
+       }
+       $masyvas8[$index] = $masyvoSuma;
+   }else {
+       $masSum += $value;
+   }
+}
+print_r($masyvas8);
 
+function arraySort($a, $b) {
+    return ($a <=> $b);
+}
+
+usort($masyvas8, "arraySort");
+print_r($masyvas8);
 ?>
 <h2>-----10-----</h2>
 <!-- Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų.
