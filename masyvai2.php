@@ -268,5 +268,28 @@ mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikš
 Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color.
 Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX.
 Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color. -->
-
+<?php
+$masyvas10= [];
+$charpool = ['#', '%', '+', '*', '@', '裡'];
+foreach(range(1, 10) as $index => $v) {
+    foreach(range(1, 10) as $index2 => $v2) {
+        foreach(range(0, 1) as $index3 => $v3) {
+            $offset = rand(0, count($charpool)-1);
+            $rndchar = $charpool[$offset];
+            $color = dechex(rand(0x000000, 0xFFFFFF));
+            $masyvas10[$index][$index2]["value"] = $rndchar;
+            $masyvas10[$index][$index2]["color"] = 123;
+        } 
+    }
+}
+for($i = 0; $i < count($charpool); $i++) {
+    for($j = 0; $j < count($charpool); $j++) {
+        $color = dechex(rand(0x000000, 0xFFFFFF));
+        $offset = rand(0, count($charpool)-1); //random pozicija sugeneruoja
+            $rndchar = $charpool[$offset];
+        echo "<span style='color:#$color;font-size: 30px';>$rndchar </span> ";
+    }
+    echo '<br>';
+}
+?>
 <h2>-----11-----</h2>
