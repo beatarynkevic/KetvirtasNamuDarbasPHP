@@ -185,30 +185,32 @@ print_r($masyvas);
 <!-- Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas
 [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100.  -->
 <?php
+
 $usersArray = [];
 
-for($i = 0; $i < 8; $i++) {
-    $userID = rand(1, 10);
+for($i = 0; $i < 30; $i++) {
+    $userID = rand(1, 1000000);
     while(in_array($userID, array_column($usersArray, 'user_id'))) { //kol userId yra
         $userID = rand(1, 10);
     }
     $usersArray[] = ['user_id' => $userID, 'place_in_row' => rand(0, 100)];
 }
 
-print_r($usersArray);
 ?>
 
 <h2>-----6-----</h2>
 <!-- Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka. -->
 <?php
-array_multisort(array_column($usersArray, 'user_id'), SORT_ASC, $usersArray);
+
+array_multisort(array_column($usersArray, 'user_id'), SORT_ASC, $usersArray); //didejimo tvarka
 echo '<pre>';
 print_r($usersArray);
 echo '</pre>';
-array_multisort(array_column($usersArray, 'place_in_row'), SORT_DESC, $usersArray);
+array_multisort(array_column($usersArray, 'place_in_row'), SORT_DESC, $usersArray); //mazejimo tvarka
 echo '<pre>';
 print_r($usersArray);
 echo '</pre>';
+
 ?>
 
 <h2>-----7-----</h2>
@@ -255,7 +257,19 @@ echo '<br><br>';
 Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite.
 Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai. -->
 <?php
-
+$masyvas8= [];
+foreach(range(1, 10) as $key => $value) {
+    $randomNumber = rand(0, 5);
+    if($randomNumber === 0) {
+        $masyvas8[$key] = rand(0, 10);
+    }
+    if($randomNumber > 0) {
+        foreach(range(1, $randomNumber) as $key2 => $value2) {
+            $masyvas8[$key][$key2] = rand(0, 10);
+        }
+    }
+}
+ print_r($masyvas8);
 ?>
 <h2>-----9-----</h2>
 <!-- Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų
@@ -269,6 +283,7 @@ Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color.
 Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX.
 Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color. -->
 <?php
+/*
 $masyvas10= [];
 $charpool = ['#', '%', '+', '*', '@', '裡'];
 foreach(range(1, 10) as $index => $v) {
@@ -291,5 +306,6 @@ for($i = 0; $i < count($charpool); $i++) {
     }
     echo '<br>';
 }
+*/
 ?>
 <h2>-----11-----</h2>

@@ -1,31 +1,32 @@
 <?php
+echo '<pre>';
+
 $masyvas =[];
+
 $masyvas['knygos'] = '2knygos';
 $masyvas['zurnalai'] = 'seni zurnalai';
 $masyvas[''] = 'kates zaislai';
 $masyvas[5]= 'knyga';
-echo '<pre>';
-echo var_dump($masyvas);
-echo '</pre>';
+print_r($masyvas);
 
 
-$masyvas2 = [
-    'mano knygos',
-    'zurnalai' => 'seni zurnalai',
-    'zaislai' => 'kates zaislai',
-    'mano batai'
-];
 
-echo '<pre>';
-foreach($masyvas2 as $index => $value) {
-    if('seni zurnalai' == $value) {
-        $masyvas2[$index] = 'Dar daugiau kates zaislu';
-    }
-}
+// $masyvas2 = [
+//     'mano knygos',
+//     'zurnalai' => 'seni zurnalai',
+//     'zaislai' => 'kates zaislai',
+//     'mano batai'
+// ];
+// print_r($masyvas2);
 
+// foreach($masyvas2 as $index => $value) {
+//     if('seni zurnalai' == $value) {
+//         $masyvas2[$index] = 'Dar daugiau kates zaislu';
+//     }
+// }
 
-// // echo '<pre>';
-// // print_r($masyvas2);
+// print_r($masyvas2);
+
 
 // $masyvas3['kojines']['zalios'] = 'tik zalios kojines';
 // $masyvas3['kojines']['juodos'] = 'tik juodos kojines';
@@ -33,20 +34,21 @@ foreach($masyvas2 as $index => $value) {
 // print_r($masyvas3);
 
 
-// // foreach($masyvas as $index => $value) {
-// //     echo '<br>';
-// //     echo $index . ' => ' . $value;
-// // }
-// // echo '<br>';
-// // foreach(range('A', 'K') as $value) {
-// //     echo '<br>';
-// //     echo $value;
-// // }
+// foreach($masyvas as $index => $value) {
+//     echo '<br>';
+//     echo $index . ' => ' . $value;
+// }
+// echo '<br>';
+// foreach(range('A', 'K') as $value) {
+//     echo '<br>';
+//     echo $value;
+// }
 
-// // echo '<br>';
-// // $m = range(1, 5);
-// // shuffle($m);
-// // print_r($m);
+// echo '<br>';
+// $m = range(1, 9);
+// shuffle($m);
+// print_r($m);
+// echo (implode("", $m));
 
 // // echo '<br>';
 // // echo current($m);
@@ -101,25 +103,25 @@ foreach($masyvas2 as $index => $value) {
 
 
 // //budai pakeisti kintamaji
-$fruits=['banana', 'apple', 'orange', 'peach'];
-foreach($fruits as $value) {
-    echo $value . '<br>';
-}
-echo '<pre>';
-print_r($fruits);
-echo '</pre>';
+// $fruits=['banana', 'apple', 'orange', 'peach'];
+// foreach($fruits as $value) {
+//     echo $value . '<br>';
+// }
+// echo '<pre>';
+// print_r($fruits);
+// echo '</pre>';
 
-$colors = ['red', 'green', 'blue', 'yellow'];
-foreach ($colors as $index => $value) {
-   echo 'Indeksas: ' . $index . ' Reikšmė: ' . $value . '<br>';
-}
+// $colors = ['red', 'green', 'blue', 'yellow'];
+// foreach ($colors as $index => $value) {
+//    echo 'Indeksas: ' . $index . ' Reikšmė: ' . $value . '<br>';
+// }
 
 
-$transport = array('foot', 'bike', 'car', 'plane');
-$mode = current($transport); // $mode = 'foot';
-$mode = next($transport);    // $mode = 'bike';
-$mode = current($transport); // $mode = 'bike';
-$mode = prev($transport);    // $mode = 'foot';
-$mode = end($transport);     // $mode = 'plane';
-$mode = current($transport); // $mode = 'plane';
+// $transport = array('foot', 'bike', 'car', 'plane');
+// $mode = current($transport); // $mode = 'foot';
+// $mode = next($transport);    // $mode = 'bike';
+// $mode = current($transport); // $mode = 'bike';
+// $mode = prev($transport);    // $mode = 'foot';
+// $mode = end($transport);     // $mode = 'plane';
+// $mode = current($transport); // $mode = 'plane';
 ?>
